@@ -36,7 +36,7 @@ for cate in pywikibot.Category(site, cfg['np_category']).members():
     if cate.namespace().id != 14:
         othertext += '# [[:{}]]\n'.format(cate.title())
         continue
-    m = re.search(r'^Category:自(\d+)年(\d+)月主題關注度不足的條目$', cate.title())
+    m = re.search(r'^Category:自(\d+)年(\d+)月主題不滿足收錄標準的條目$', cate.title())
     key = None
     if m:
         key = int(m.group(1)) * 100 + int(m.group(2))
