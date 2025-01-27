@@ -33,6 +33,8 @@ for page in pywikibot.Category(site, cfg['afd_category']).members(namespaces=[0]
 othertext = ''
 text_dict = {}
 for cate in pywikibot.Category(site, cfg['np_category']).members():
+    if re.search(cfg['np_exclude_category'], cate.title()):
+        continue
     if cate.namespace().id != 14:
         othertext += '# [[:{}]]\n'.format(cate.title())
         continue
